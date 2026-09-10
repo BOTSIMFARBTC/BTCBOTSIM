@@ -1,0 +1,25 @@
+Argus v6 A/B — run v6ab-verify, 2min/seed × 20seeds × 1 arms (A) = 40min total, seedBase=2000
+
+Data: 3951 bars, 71 curated events, 3951 macro rows
+TRAIN:      2010-08-18 → 2022-12-31 (7.1yr) — GA fitness
+VALIDATION: 2023-01-01 → 2026-03-10 (3.2yr) — A/B comparison
+HOLDOUT:    2026-03-11 → end — LOCKED, not touched here
+
+Precomputed: indicators + event-state (1d delay) + macro state
+
+Buy-hold TRAIN: $236320000   Buy-hold VAL: $4210
+
+K-fold: 4 folds within TRAIN
+  Fold 0: 2010-08-18 → 2017-08-27
+  Fold 1: 2017-08-28 → 2019-06-08
+  Fold 2: 2019-06-09 → 2021-03-19
+  Fold 3: 2021-03-20 → 2022-12-31
+
+
+================================================================================
+ARM A — 17g (no macro) — 20 seeds
+================================================================================
+  arm A seed 2000 | gen   80 | 4s | fit   3.55 | val Calmar  -0.02 | val CAGR  -0.6% | val DD 26% | val trades  46 | WATCH
+  arm A seed 2001 | gen 1874 | 120s | fit   2.76 | val Calmar   0.68 | val CAGR  20.2% | val DD 30% | val trades  36 |      
+  arm A seed 2002 | gen 1891 | 120s | fit   2.39 | val Calmar   0.12 | val CAGR   4.6% | val DD 37% | val trades  40 |      
+  arm A seed 2003 | gen 1448 | 120s | fit   3.66 | val Calmar   0.28 | val CAGR   7.3% | val DD 26% | val trades  56 |      
