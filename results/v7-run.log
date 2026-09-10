@@ -1,0 +1,38 @@
+Argus v7 (excess-Sortino fitness) — run v7, 2min/seed × 20seeds × 1 arms (A) = 40min total, seedBase=3000
+
+Data: 3951 bars, 71 curated events, 3951 macro rows
+TRAIN:      2010-08-18 → 2022-12-31 (7.1yr) — GA fitness
+VALIDATION: 2023-01-01 → 2026-03-10 (3.2yr) — A/B comparison
+HOLDOUT:    2026-03-11 → end — LOCKED, not touched here
+
+Precomputed: indicators + event-state (1d delay) + macro state
+
+Buy-hold TRAIN: $236320000   Buy-hold VAL: $4210
+
+K-fold: 4 folds within TRAIN
+  Fold 0: 2010-08-18 → 2017-08-27
+  Fold 1: 2017-08-28 → 2019-06-08
+  Fold 2: 2019-06-09 → 2021-03-19
+  Fold 3: 2021-03-20 → 2022-12-31
+
+
+================================================================================
+ARM A — 17g (no macro) — 20 seeds
+================================================================================
+  arm A seed 3000 | gen 1278 | 120s | fit   0.00 | val ExcSort  -1.33 | val Calmar  0.05 | val CAGR   1.5% | BH  56.9% |      
+  arm A seed 3001 | gen 1085 | 120s | fit   0.00 | val ExcSort  -0.95 | val Calmar  0.50 | val CAGR  16.1% | BH  56.9% |      
+  arm A seed 3002 | gen 1243 | 120s | fit   0.00 | val ExcSort  -1.47 | val Calmar -0.01 | val CAGR  -0.2% | BH  56.9% |      
+  arm A seed 3003 | gen 1056 | 120s | fit   0.00 | val ExcSort  -1.36 | val Calmar  0.15 | val CAGR   5.1% | BH  56.9% |      
+  arm A seed 3004 | gen 1025 | 120s | fit   0.00 | val ExcSort  -1.71 | val Calmar -0.32 | val CAGR -14.5% | BH  56.9% |      
+  arm A seed 3005 | gen 1235 | 120s | fit   0.00 | val ExcSort  -1.45 | val Calmar  0.39 | val CAGR   4.6% | BH  56.9% |      
+  arm A seed 3006 | gen 1619 | 120s | fit   0.00 | val ExcSort  -1.26 | val Calmar  0.59 | val CAGR  10.5% | BH  56.9% |      
+  arm A seed 3007 | gen 1580 | 120s | fit   0.00 | val ExcSort  -1.59 | val Calmar -0.03 | val CAGR  -0.4% | BH  56.9% |      
+  arm A seed 3008 | gen 1466 | 120s | fit   0.00 | val ExcSort  -1.54 | val Calmar -0.29 | val CAGR  -2.9% | BH  56.9% |      
+  arm A seed 3009 | gen 1234 | 120s | fit   0.00 | val ExcSort  -1.54 | val Calmar -0.18 | val CAGR  -4.5% | BH  56.9% |      
+  arm A seed 3010 | gen 1238 | 120s | fit   0.00 | val ExcSort  -1.23 | val Calmar  0.61 | val CAGR  12.2% | BH  56.9% |      
+  arm A seed 3011 | gen 1118 | 120s | fit   0.00 | val ExcSort  -1.13 | val Calmar  0.03 | val CAGR   0.8% | BH  56.9% |      
+  arm A seed 3012 | gen  850 | 120s | fit   0.00 | val ExcSort  -1.49 | val Calmar -0.00 | val CAGR  -0.0% | BH  56.9% |      
+  arm A seed 3013 | gen 1160 | 120s | fit   0.00 | val ExcSort  -1.47 | val Calmar  0.44 | val CAGR   2.1% | BH  56.9% |      
+  arm A seed 3014 | gen  935 | 120s | fit   0.00 | val ExcSort  -1.11 | val Calmar -0.04 | val CAGR  -1.5% | BH  56.9% |      
+  arm A seed 3015 | gen  961 | 120s | fit   0.00 | val ExcSort  -1.05 | val Calmar  0.38 | val CAGR  12.6% | BH  56.9% |      
+  arm A seed 3016 | gen  908 | 120s | fit   0.00 | val ExcSort  -1.34 | val Calmar -0.06 | val CAGR  -2.6% | BH  56.9% |      

@@ -230,7 +230,12 @@ function simulate(bars: BtcDay[], indic: { rsi: number[]; vol20: number[] }, evs
       dailyReturns.push(eqY > 0 ? (equity - eqY) / eqY : 0);
     } else dailyReturns.push(0);
 
-    if (i - startIdx < Math.max(p.ma_trend_period, 30)) {
+    // In production, a bot deployed at startIdx already has all bars 0..startIdx-1
+    // available for indicator computation. Warmup-skip should apply to bar-index-in-
+    // FULL-history, not bar-index-in-slice. This differs from the training sim which
+    // treats each fold as a "fresh deployment" — appropriate for K-fold but wrong for
+    // holdout testing.
+    if (i < Math.max(p.ma_trend_period, 30)) {
       if (btcHeld > 0) daysInPos++; else daysSinceExit++;
       continue;
     }

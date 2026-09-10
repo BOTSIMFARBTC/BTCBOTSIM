@@ -23,3 +23,29 @@ ARM A — 17g (no macro) — 20 seeds
   arm A seed 2001 | gen 1874 | 120s | fit   2.76 | val Calmar   0.68 | val CAGR  20.2% | val DD 30% | val trades  36 |      
   arm A seed 2002 | gen 1891 | 120s | fit   2.39 | val Calmar   0.12 | val CAGR   4.6% | val DD 37% | val trades  40 |      
   arm A seed 2003 | gen 1448 | 120s | fit   3.66 | val Calmar   0.28 | val CAGR   7.3% | val DD 26% | val trades  56 |      
+  arm A seed 2004 | gen 1942 | 120s | fit   4.01 | val Calmar  -0.08 | val CAGR  -1.8% | val DD 22% | val trades  48 |      
+  arm A seed 2005 | gen 1411 | 120s | fit   2.84 | val Calmar   0.04 | val CAGR   0.9% | val DD 21% | val trades  66 |      
+  arm A seed 2006 | gen 1530 | 120s | fit   3.00 | val Calmar   0.72 | val CAGR  12.9% | val DD 18% | val trades  54 |      
+  arm A seed 2007 | gen  260 | 21s | fit   3.06 | val Calmar   0.27 | val CAGR   9.9% | val DD 37% | val trades 104 | WATCH
+  arm A seed 2008 | gen 1984 | 120s | fit   2.74 | val Calmar   0.99 | val CAGR  21.1% | val DD 21% | val trades  32 |      
+  arm A seed 2009 | gen   80 | 5s | fit   1.99 | val Calmar   0.26 | val CAGR   7.7% | val DD 29% | val trades  32 | WATCH
+  arm A seed 2010 | gen 2489 | 120s | fit   3.13 | val Calmar   0.11 | val CAGR   3.3% | val DD 30% | val trades  50 |      
+  arm A seed 2011 | gen 2249 | 120s | fit   4.41 | val Calmar   0.20 | val CAGR   6.6% | val DD 33% | val trades  54 |      
+  arm A seed 2012 | gen 2296 | 120s | fit   3.28 | val Calmar   0.75 | val CAGR  15.1% | val DD 20% | val trades  58 |      
+  arm A seed 2013 | gen 2001 | 120s | fit   2.18 | val Calmar   0.47 | val CAGR   9.0% | val DD 19% | val trades  36 |      
+  arm A seed 2014 | gen 1769 | 120s | fit   3.59 | val Calmar   0.34 | val CAGR  13.0% | val DD 38% | val trades  64 |      
+  arm A seed 2015 | gen 1274 | 120s | fit   3.26 | val Calmar   1.43 | val CAGR  29.0% | val DD 20% | val trades  34 |      
+  arm A seed 2016 | gen 1480 | 120s | fit   3.48 | val Calmar  -0.13 | val CAGR  -2.9% | val DD 22% | val trades  34 |      
+  arm A seed 2017 | gen 1392 | 120s | fit   2.56 | val Calmar   0.02 | val CAGR   0.7% | val DD 38% | val trades  46 |      
+  arm A seed 2018 | gen 1349 | 120s | fit   2.54 | val Calmar   0.57 | val CAGR  14.7% | val DD 26% | val trades  54 |      
+  arm A seed 2019 | gen 1402 | 120s | fit   2.21 | val Calmar  -0.14 | val CAGR  -4.2% | val DD 30% | val trades  40 |      
+
+================================================================================
+A/B RESULT — validation Calmar distributions
+================================================================================
+Arm A: n=20  mean=0.344  median=0.269  min=-0.137  max=1.426
+  Best-of-A (seed 2015): Calmar 1.426 | CAGR 29.0% | DD 20.3% | bull-capture 27% | trades 34
+
+Single-arm run (A). No Mann-Whitney comparison.
+
+Wrote results/v6ab-verify-ab-analysis.json

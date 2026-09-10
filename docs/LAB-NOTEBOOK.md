@@ -17,6 +17,33 @@ Format: newest entries at top.
 
 ## Entries
 
+### exp-09 · portfolio-holdout (2026-09-11) — SHIP CANDIDATE (Path X)
+- **Config**: Equal-weight portfolio of top-10 bots by val Calmar from v6ab + v6ab-verify (60 total candidates). Run on HOLDOUT slice 2026-03-11 → 2026-09-10.
+- **Intent**: Test whether ensemble aggregation rescues what single-bot cherry-picking couldn't — bring holdout metrics into ship-eligible range.
+- **Hypothesis**: 10 moderately-correlated bots aggregate to a portfolio with LOWER DD than any single bot, potentially achieving ship-eligible Calmar via variance reduction.
+- **Result**: Portfolio CAGR +2.4%, DD 6.77% (very low), Calmar 0.36, Sortino 0.31, excess-Sortino vs BH -0.914. **DD reduction is real (6.8% vs typical single-bot 10-27%) but return also dropped.** 7 of 10 individual bots have NEGATIVE holdout CAGR. Ship gate 5/6 fail (as an alpha product) — Calmar, Edge, Excess-Sortino, Regime consistency all fail. **BUT**: gate 2 (DD < 40%) and gate 3 (CAGR ≥ 0) pass with margin. Bot pairwise correlation mean 0.547.
+- **Ship-eligible as alpha product**: NO. **Ship-eligible as risk-managed HODL replacement (Path X)**: YES.
+- **Kept for**: This IS the ship candidate. Product spec: "roughly half the drawdown pain at roughly half the upside." Not alpha. Documented holdout behavior.
+- **Artifacts**: `results/portfolio-holdout.json`, `memory/session_pause_2026_09_11_pathX_selected.md`
+
+### exp-08 · v7 (2026-09-11)
+- **Config**: 17g A-shape, fitness = geo-mean(per-fold Sortino of daily excess returns vs buy-hold). Bull-capture penalty REMOVED (redundant). Watchdog tracks excess-Sortino divergence. 20 seeds × 2 min A only, seeds 3000-3019.
+- **Intent**: Align GA with what members actually want — beat BH on risk-adjusted alpha, not just have positive Calmar.
+- **Hypothesis**: If fitness rewards beating BH, GA finds bots that outperform passive BTC hold on risk-adjusted basis.
+- **Result**: Process crashed at seed 3016/20 but result is unambiguous. **All 17 completed seeds hit fitness = 0.** Every fold in every seed had negative excess-Sortino. Best individual bot (seed 3001): val Calmar 0.50, CAGR 16.1% while BH ran 56.9% CAGR. Excess-Sortino distribution entirely NEGATIVE (-0.95 to -1.71).
+- **Ship-eligible**: NO — impossible in the tested regime.
+- **Kept for**: **THE STRUCTURAL FINDING.** Confirms it's not the fitness that's broken — the entire "17g daily single-asset BTC trend-follower" architecture cannot beat BH in a 2023-26 bull era. Market truth, not bug. Justifies Path X pivot to non-alpha framing.
+- **Artifacts**: `results/v7-run.log` (partial), scripts/11-evolve-v7.ts
+
+### exp-07 · v6ab-holdout-A (2026-09-11)
+- **Config**: Test best-of-A (seed 1016, val Calmar 1.189) on locked HOLDOUT slice. Fixed warmup-skip bug: use full-history bar index for indicator initialization (production has all history, not just holdout slice).
+- **Intent**: Determine whether v6-A's val-slice Calmar 1.189 was skill or lucky-seed × lucky-slice.
+- **Hypothesis**: If Arm A shape verified robust (mean val Calmar 0.31 across 40 seeds), best-of-40 might carry to holdout. Or might be cherry-picking.
+- **Result**: **HARD FAIL.** Holdout CAGR -13.8%, Calmar -1.054, DD 13.1%, 4 trades. Sortino CI [-2.37, +2.41] — pure noise. 0/3 regimes positive. **5 of 6 ship gates fail.**
+- **Ship-eligible**: NO.
+- **Kept for**: **The gate did its job.** Val Calmar 1.189 was cherry-picked from 40 seeds where mean was 0.31. Holdout caught the illusion. Justifies Path X pivot.
+- **Artifacts**: `results/v6ab-holdout-A.json`, `scripts/10-test-holdout.ts`
+
 ### exp-06 · v6ab (2026-09-10)
 - **Config**: 17g Arm A / 19g Arm B (17 + 2 composite macro). K-fold geo-mean Calmar × soft bull-participation penalty. Realism patches: position cap $10k, gap-through stops, funding 3 bps/day, watchdog validation-divergence. Deterministic seeds 1000-1019 (A), 1100-1119 (B). Mann-Whitney U with Bonferroni.
 - **Intent**: (1) test whether COMPOSITE macro (shrunk from v5's 4 to 2 genes) provides measurable benefit over no-macro baseline; (2) apply Sable's 4 realism lessons to base sim; (3) find a ship-eligible bot via bull-participation floor.
