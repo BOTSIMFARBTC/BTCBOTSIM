@@ -17,6 +17,15 @@ Format: newest entries at top.
 
 ## Entries
 
+### exp-06 · v6ab (2026-09-10)
+- **Config**: 17g Arm A / 19g Arm B (17 + 2 composite macro). K-fold geo-mean Calmar × soft bull-participation penalty. Realism patches: position cap $10k, gap-through stops, funding 3 bps/day, watchdog validation-divergence. Deterministic seeds 1000-1019 (A), 1100-1119 (B). Mann-Whitney U with Bonferroni.
+- **Intent**: (1) test whether COMPOSITE macro (shrunk from v5's 4 to 2 genes) provides measurable benefit over no-macro baseline; (2) apply Sable's 4 realism lessons to base sim; (3) find a ship-eligible bot via bull-participation floor.
+- **Hypothesis**: composite macro might rescue what v5's individual macro genes overfit. Bull floor forces bots to catch bulls.
+- **Result**: **Arm A wins narrow** — mean val Calmar 0.311 vs 0.222. Mann-Whitney p=0.81, NOT significant. Best-of-A (seed 1016): **val Calmar 1.189, CAGR 18.1%, DD 15.2%, ~68 bps net edge, 42 trades**. Passes ship gates 1-4 on validation. Bull capture still 21% (below intent).
+- **Ship-eligible**: Preliminary YES on gates 1-4. Gates 5 (bootstrap CI) + 6 (regime consistency) not yet tested. Fresh-seed verification in flight (seeds 2000-2019 Arm A).
+- **Kept for**: current strongest ship candidate. Macro genes officially declared dead (3 attempts, 3 failures). Watchdog rule validated by 12/40 trips.
+- **Artifacts**: `results/v6ab-ab-analysis.json`, `results/v6ab-run.log`, `memory/v6ab_arm_a_wins_inconclusive_2026_09_10.md`
+
 ### exp-05 · v5 (2026-09-10)
 - **Config**: 21-gene (17 + 4 macro), K-fold geo-mean Calmar, 4 folds, event delay 1d, macro percentile state, slippage
 - **Intent**: does macro state (VIX/DXY/^TNX/SP500 percentiles) let bot condition behavior on regime rather than blur across regimes?

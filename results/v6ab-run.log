@@ -1,0 +1,80 @@
+Argus v6 A/B — run v6ab, 2min/seed × 20seeds × 2arms = 80min total
+
+Data: 3951 bars, 71 curated events, 3951 macro rows
+TRAIN:      2010-08-18 → 2022-12-31 (7.1yr) — GA fitness
+VALIDATION: 2023-01-01 → 2026-03-10 (3.2yr) — A/B comparison
+HOLDOUT:    2026-03-11 → end — LOCKED, not touched here
+
+Precomputed: indicators + event-state (1d delay) + macro state
+
+Buy-hold TRAIN: $236320000   Buy-hold VAL: $4210
+
+K-fold: 4 folds within TRAIN
+  Fold 0: 2010-08-18 → 2017-08-27
+  Fold 1: 2017-08-28 → 2019-06-08
+  Fold 2: 2019-06-09 → 2021-03-19
+  Fold 3: 2021-03-20 → 2022-12-31
+
+
+================================================================================
+ARM A — 17g (no macro) — 20 seeds
+================================================================================
+  arm A seed 1000 | gen 1495 | 120s | fit   3.08 | val Calmar  -0.03 | val CAGR  -0.8% | val DD 29% | val trades  30 |      
+  arm A seed 1001 | gen 1618 | 120s | fit   3.21 | val Calmar  -0.28 | val CAGR  -8.8% | val DD 32% | val trades  64 |      
+  arm A seed 1002 | gen 1677 | 120s | fit   2.13 | val Calmar   0.78 | val CAGR  11.5% | val DD 15% | val trades  40 |      
+  arm A seed 1003 | gen 1811 | 120s | fit   4.08 | val Calmar   0.24 | val CAGR   8.8% | val DD 37% | val trades  94 |      
+  arm A seed 1004 | gen  480 | 34s | fit   4.09 | val Calmar   0.07 | val CAGR   2.3% | val DD 33% | val trades  70 | WATCH
+  arm A seed 1005 | gen 1606 | 120s | fit   2.86 | val Calmar   0.45 | val CAGR  11.1% | val DD 24% | val trades  44 |      
+  arm A seed 1006 | gen 1759 | 120s | fit   3.50 | val Calmar   0.84 | val CAGR  12.5% | val DD 15% | val trades  44 |      
+  arm A seed 1007 | gen 1582 | 120s | fit   2.50 | val Calmar   0.64 | val CAGR  11.2% | val DD 18% | val trades  54 |      
+  arm A seed 1008 | gen  220 | 17s | fit   2.98 | val Calmar   0.85 | val CAGR  15.0% | val DD 18% | val trades  48 | WATCH
+  arm A seed 1009 | gen 1507 | 120s | fit   2.89 | val Calmar   1.19 | val CAGR  24.0% | val DD 20% | val trades  46 |      
+  arm A seed 1010 | gen   80 | 6s | fit   4.01 | val Calmar   0.06 | val CAGR   2.4% | val DD 38% | val trades  98 | WATCH
+  arm A seed 1011 | gen 1554 | 120s | fit   3.56 | val Calmar  -0.05 | val CAGR  -2.0% | val DD 44% | val trades  50 |      
+  arm A seed 1012 | gen 1334 | 120s | fit   1.94 | val Calmar   0.09 | val CAGR   2.7% | val DD 29% | val trades  44 |      
+  arm A seed 1013 | gen   80 | 6s | fit   1.82 | val Calmar  -0.27 | val CAGR  -9.6% | val DD 35% | val trades  30 | WATCH
+  arm A seed 1014 | gen 1466 | 120s | fit   2.51 | val Calmar   0.30 | val CAGR   8.1% | val DD 27% | val trades  50 |      
+  arm A seed 1015 | gen 1640 | 110s | fit   3.98 | val Calmar  -0.17 | val CAGR  -6.6% | val DD 38% | val trades  92 | WATCH
+  arm A seed 1016 | gen 1745 | 120s | fit   2.50 | val Calmar   1.19 | val CAGR  18.1% | val DD 15% | val trades  42 |      
+  arm A seed 1017 | gen 1866 | 120s | fit   3.92 | val Calmar   0.26 | val CAGR   8.5% | val DD 33% | val trades  94 |      
+  arm A seed 1018 | gen 1548 | 120s | fit   2.98 | val Calmar  -0.04 | val CAGR  -1.4% | val DD 40% | val trades  64 |      
+  arm A seed 1019 | gen 1665 | 120s | fit   2.03 | val Calmar   0.09 | val CAGR   2.5% | val DD 27% | val trades  32 |      
+
+================================================================================
+ARM B — 19g (17 + 2 composite macro) — 20 seeds
+================================================================================
+  arm B seed 1100 | gen 1677 | 120s | fit   1.51 | val Calmar   0.29 | val CAGR   8.8% | val DD 30% | val trades  28 |      
+  arm B seed 1101 | gen 2101 | 120s | fit   3.27 | val Calmar   0.15 | val CAGR   6.2% | val DD 43% | val trades  78 |      
+  arm B seed 1102 | gen  180 | 11s | fit   2.66 | val Calmar  -0.08 | val CAGR  -4.8% | val DD 57% | val trades  27 | WATCH
+  arm B seed 1103 | gen 2182 | 120s | fit   3.22 | val Calmar  -0.08 | val CAGR  -3.2% | val DD 41% | val trades  29 |      
+  arm B seed 1104 | gen 1800 | 120s | fit   2.28 | val Calmar   0.16 | val CAGR   4.7% | val DD 30% | val trades  26 |      
+  arm B seed 1105 | gen 1944 | 120s | fit   3.15 | val Calmar   0.27 | val CAGR   6.5% | val DD 24% | val trades  32 |      
+  arm B seed 1106 | gen 1280 | 68s | fit   3.10 | val Calmar  -0.01 | val CAGR  -0.2% | val DD 26% | val trades  30 | WATCH
+  arm B seed 1107 | gen 2575 | 120s | fit   2.90 | val Calmar   0.28 | val CAGR   5.7% | val DD 20% | val trades  36 |      
+  arm B seed 1108 | gen 2403 | 120s | fit   3.79 | val Calmar   0.61 | val CAGR  14.5% | val DD 24% | val trades  48 |      
+  arm B seed 1109 | gen 2262 | 120s | fit   2.89 | val Calmar   0.37 | val CAGR   9.5% | val DD 26% | val trades  38 |      
+  arm B seed 1110 | gen 2210 | 120s | fit   2.90 | val Calmar   0.77 | val CAGR  17.3% | val DD 23% | val trades  38 |      
+  arm B seed 1111 | gen 1660 | 95s | fit   3.32 | val Calmar   0.90 | val CAGR  16.0% | val DD 18% | val trades  34 | WATCH
+  arm B seed 1112 | gen  120 | 7s | fit   3.91 | val Calmar   0.28 | val CAGR   8.1% | val DD 29% | val trades  82 | WATCH
+  arm B seed 1113 | gen   80 | 4s | fit   2.12 | val Calmar   0.19 | val CAGR   5.3% | val DD 28% | val trades  52 | WATCH
+  arm B seed 1114 | gen 2595 | 120s | fit   3.85 | val Calmar  -0.04 | val CAGR  -2.1% | val DD 53% | val trades  54 |      
+  arm B seed 1115 | gen  160 | 9s | fit   2.21 | val Calmar   0.18 | val CAGR   4.3% | val DD 24% | val trades  54 | WATCH
+  arm B seed 1116 | gen 2076 | 120s | fit   3.82 | val Calmar   0.39 | val CAGR  10.4% | val DD 27% | val trades  80 |      
+  arm B seed 1117 | gen   80 | 5s | fit   3.66 | val Calmar  -0.21 | val CAGR  -8.4% | val DD 40% | val trades 102 | WATCH
+  arm B seed 1118 | gen 1872 | 120s | fit   2.49 | val Calmar   0.01 | val CAGR   0.2% | val DD 20% | val trades  30 |      
+  arm B seed 1119 | gen 1666 | 120s | fit   3.08 | val Calmar   0.02 | val CAGR   0.9% | val DD 35% | val trades  56 |      
+
+================================================================================
+A/B RESULT — validation Calmar distributions
+================================================================================
+Arm A (no macro, 17g):    n=20  mean=0.311  median=0.236  min=-0.276  max=1.189
+Arm B (composite macro):  n=20  mean=0.222  median=0.189  min=-0.209  max=0.903
+Mann-Whitney U = 191.0, z = -0.243, p (raw) = 0.8077, p (Bonferroni×1) = 0.8077
+VERDICT: NOT significant at α=0.05. Distributions overlap; need more seeds or the design change didn't move the needle.
+
+BEST-OF-A (seed 1016):
+  val Calmar 1.189 | val CAGR 18.1% | val DD 15.2% | val bull-capture 21% | val trades 42
+BEST-OF-B (seed 1111):
+  val Calmar 0.903 | val CAGR 16.0% | val DD 17.7% | val bull-capture 21% | val trades 34
+
+Wrote results/v6ab-ab-analysis.json
