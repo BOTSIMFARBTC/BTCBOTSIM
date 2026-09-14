@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-09-14T23:16:35.393Z",
+  "ranAt": "2026-09-14T23:19:59.129Z",
   "params": {
     "cohortMonths": 3,
     "windowYears": 4,
@@ -14,9 +14,9 @@
       "wins": 222,
       "losses": 388,
       "wr": 36.39344262295082,
-      "meanWinBps": 3405.964166620884,
-      "meanLossBps": -449.6928616810897,
-      "expBps": 953.5134666517591
+      "meanWinBps": 3383.278365211165,
+      "meanLossBps": -471.06915295653374,
+      "expBps": 931.6605995569578
     },
     {
       "id": "argus-btc-v6ab-A-1016",
@@ -24,19 +24,19 @@
       "wins": 191,
       "losses": 434,
       "wr": 30.56,
-      "meanWinBps": 3219.5563834367003,
-      "meanLossBps": -479.9752129198734,
-      "expBps": 650.6016429266964
+      "meanWinBps": 3199.45105995279,
+      "meanLossBps": -498.17387450766995,
+      "expBps": 631.8203054634465
     },
     {
       "id": "argus-btc-v6ab-A-1009",
       "trades": 779,
-      "wins": 302,
-      "losses": 477,
-      "wr": 38.767650834403085,
-      "meanWinBps": 3797.9410688300522,
-      "meanLossBps": -362.6532529755104,
-      "expBps": 1250.31142633807
+      "wins": 287,
+      "losses": 492,
+      "wr": 36.84210526315789,
+      "meanWinBps": 3979.5054046458586,
+      "meanLossBps": -375.2922520102863,
+      "expBps": 1229.106884652504
     },
     {
       "id": "argus-btc-verify-A-2008",
@@ -44,19 +44,19 @@
       "wins": 328,
       "losses": 348,
       "wr": 48.5207100591716,
-      "meanWinBps": 3910.7517131356008,
-      "meanLossBps": -552.7992536327992,
-      "expBps": 1612.9473692962454
+      "meanWinBps": 3874.7005785156484,
+      "meanLossBps": -590.8342253421779,
+      "expBps": 1575.8749694290743
     },
     {
       "id": "argus-btc-v6ab-B-1111",
       "trades": 687,
-      "wins": 255,
-      "losses": 432,
-      "wr": 37.117903930131,
-      "meanWinBps": 3561.2955673606593,
-      "meanLossBps": -479.9558662145834,
-      "expBps": 1020.0719584749153
+      "wins": 245,
+      "losses": 442,
+      "wr": 35.662299854439595,
+      "meanWinBps": 3658.484414657551,
+      "meanLossBps": -490.58217999351666,
+      "expBps": 989.0703901513335
     },
     {
       "id": "argus-btc-v6ab-A-1008",
@@ -64,9 +64,9 @@
       "wins": 209,
       "losses": 399,
       "wr": 34.375,
-      "meanWinBps": 3809.1274767888435,
-      "meanLossBps": -543.2956777408714,
-      "expBps": 952.8497816287182
+      "meanWinBps": 3788.2212260430138,
+      "meanLossBps": -550.7736689881607,
+      "expBps": 940.7558261788059
     },
     {
       "id": "argus-btc-v6ab-A-1006",
@@ -74,9 +74,9 @@
       "wins": 424,
       "losses": 484,
       "wr": 46.69603524229075,
-      "meanWinBps": 3526.729353978954,
-      "meanLossBps": -581.8088846205574,
-      "expBps": 1336.7155792188603
+      "meanWinBps": 3513.1117283036087,
+      "meanLossBps": -599.4851922661966,
+      "expBps": 1320.9345151364423
     },
     {
       "id": "argus-btc-v6ab-A-1002",
@@ -84,9 +84,9 @@
       "wins": 390,
       "losses": 461,
       "wr": 45.82843713278496,
-      "meanWinBps": 3412.1153542276024,
-      "meanLossBps": -571.9943678996085,
-      "expBps": 1253.8608514066332
+      "meanWinBps": 3409.4331066278783,
+      "meanLossBps": -585.5338561524213,
+      "expBps": 1245.2970668608768
     },
     {
       "id": "argus-btc-v6ab-B-1110",
@@ -94,9 +94,9 @@
       "wins": 237,
       "losses": 455,
       "wr": 34.2485549132948,
-      "meanWinBps": 3523.6895382788503,
-      "meanLossBps": -411.4422996547339,
-      "expBps": 936.2834887704968
+      "meanWinBps": 3516.4253939521577,
+      "meanLossBps": -435.17262382941124,
+      "expBps": 918.1925932431773
     },
     {
       "id": "argus-btc-verify-A-2012",
@@ -104,296 +104,296 @@
       "wins": 305,
       "losses": 441,
       "wr": 40.88471849865952,
-      "meanWinBps": 4524.20708209759,
-      "meanLossBps": -663.7661919369303,
-      "expBps": 1457.3220769377763
+      "meanWinBps": 4507.5565387374545,
+      "meanLossBps": -693.3899009341789,
+      "expBps": 1433.002410191623
     }
   ],
   "totalTrades": 7182,
-  "totalWins": 2863,
-  "aggWR": 39.863547758284604,
+  "totalWins": 2838,
+  "aggWR": 39.515455304928985,
   "cohortResults": [
     {
       "enroll": "2011-01-01",
       "to": "2015-01-01",
       "cohortOpens": 125,
-      "meanFinal": 2673.0389999999998
+      "meanFinal": 2672.477
     },
     {
       "enroll": "2011-04-01",
       "to": "2015-04-01",
       "cohortOpens": 125,
-      "meanFinal": 2673.0389999999998
+      "meanFinal": 2672.477
     },
     {
       "enroll": "2011-07-01",
       "to": "2015-07-01",
       "cohortOpens": 127,
-      "meanFinal": 2662.0379999999996
+      "meanFinal": 2661.476
     },
     {
       "enroll": "2011-10-01",
       "to": "2015-10-01",
       "cohortOpens": 130,
-      "meanFinal": 2637.4689999999996
+      "meanFinal": 2636.924
     },
     {
       "enroll": "2012-01-01",
       "to": "2016-01-01",
       "cohortOpens": 134,
-      "meanFinal": 2781.5269999999996
+      "meanFinal": 2780.911
     },
     {
       "enroll": "2012-04-01",
       "to": "2016-04-01",
       "cohortOpens": 140,
-      "meanFinal": 2747.569
+      "meanFinal": 2746.036
     },
     {
       "enroll": "2012-07-01",
       "to": "2016-07-01",
       "cohortOpens": 141,
-      "meanFinal": 2817.875
+      "meanFinal": 2816.3779999999997
     },
     {
       "enroll": "2012-10-01",
       "to": "2016-10-01",
       "cohortOpens": 140,
-      "meanFinal": 2388.1339999999996
+      "meanFinal": 2370.0349999999994
     },
     {
       "enroll": "2013-01-01",
       "to": "2017-01-01",
       "cohortOpens": 123,
-      "meanFinal": 2458.913
+      "meanFinal": 2440.777
     },
     {
       "enroll": "2013-04-01",
       "to": "2017-04-01",
       "cohortOpens": 131,
-      "meanFinal": 2005.3390000000004
+      "meanFinal": 1987.1000000000004
     },
     {
       "enroll": "2013-07-01",
       "to": "2017-07-01",
       "cohortOpens": 143,
-      "meanFinal": 2378.797
+      "meanFinal": 2358.341
     },
     {
       "enroll": "2013-10-01",
       "to": "2017-10-01",
       "cohortOpens": 172,
-      "meanFinal": 3163.5829999999996
+      "meanFinal": 3113.506
     },
     {
       "enroll": "2014-01-01",
       "to": "2018-01-01",
       "cohortOpens": 200,
-      "meanFinal": 2787.694
+      "meanFinal": 2726.0750000000003
     },
     {
       "enroll": "2014-04-01",
       "to": "2018-04-01",
       "cohortOpens": 201,
-      "meanFinal": 3090.3880000000004
+      "meanFinal": 3013.0150000000003
     },
     {
       "enroll": "2014-07-01",
       "to": "2018-07-01",
       "cohortOpens": 199,
-      "meanFinal": 2956.239
+      "meanFinal": 2880.8460000000005
     },
     {
       "enroll": "2014-10-01",
       "to": "2018-10-01",
       "cohortOpens": 191,
-      "meanFinal": 3053.399
+      "meanFinal": 2975.966
     },
     {
       "enroll": "2015-01-01",
       "to": "2019-01-01",
       "cohortOpens": 192,
-      "meanFinal": 3044.446
+      "meanFinal": 2967.127
     },
     {
       "enroll": "2015-04-01",
       "to": "2019-04-01",
       "cohortOpens": 192,
-      "meanFinal": 3090.441
+      "meanFinal": 3011.505
     },
     {
       "enroll": "2015-07-01",
       "to": "2019-07-01",
       "cohortOpens": 197,
-      "meanFinal": 3382.207
+      "meanFinal": 3293.6799999999994
     },
     {
       "enroll": "2015-10-01",
       "to": "2019-10-01",
       "cohortOpens": 198,
-      "meanFinal": 3355.298999999999
+      "meanFinal": 3267.8969999999995
     },
     {
       "enroll": "2016-01-01",
       "to": "2020-01-01",
       "cohortOpens": 190,
-      "meanFinal": 2915.005
+      "meanFinal": 2840.775
     },
     {
       "enroll": "2016-04-01",
       "to": "2020-04-01",
       "cohortOpens": 174,
-      "meanFinal": 3048.0899999999997
+      "meanFinal": 2969.647
     },
     {
       "enroll": "2016-07-01",
       "to": "2020-07-01",
       "cohortOpens": 161,
-      "meanFinal": 2769.189
+      "meanFinal": 2690.945
     },
     {
       "enroll": "2016-10-01",
       "to": "2020-10-01",
       "cohortOpens": 144,
-      "meanFinal": 2857.673
+      "meanFinal": 2830.048
     },
     {
       "enroll": "2017-01-01",
       "to": "2021-01-01",
       "cohortOpens": 136,
-      "meanFinal": 2700.7929999999997
+      "meanFinal": 2674.342
     },
     {
       "enroll": "2017-04-01",
       "to": "2021-04-01",
       "cohortOpens": 120,
-      "meanFinal": 2529.1189999999997
+      "meanFinal": 2504.147
     },
     {
       "enroll": "2017-07-01",
       "to": "2021-07-01",
       "cohortOpens": 110,
-      "meanFinal": 1924.0310000000002
+      "meanFinal": 1903.515
     },
     {
       "enroll": "2017-10-01",
       "to": "2021-10-01",
       "cohortOpens": 76,
-      "meanFinal": 1138.7669999999998
+      "meanFinal": 1126.205
     },
     {
       "enroll": "2018-01-01",
       "to": "2022-01-01",
       "cohortOpens": 161,
-      "meanFinal": 2108.855
+      "meanFinal": 2069.946
     },
     {
       "enroll": "2018-04-01",
       "to": "2022-04-01",
       "cohortOpens": 171,
-      "meanFinal": 2631.582
+      "meanFinal": 2590.391
     },
     {
       "enroll": "2018-07-01",
       "to": "2022-07-01",
       "cohortOpens": 176,
-      "meanFinal": 2583.665
+      "meanFinal": 2545.309
     },
     {
       "enroll": "2018-10-01",
       "to": "2022-10-01",
       "cohortOpens": 163,
-      "meanFinal": 2626.7909999999997
+      "meanFinal": 2588.16
     },
     {
       "enroll": "2019-01-01",
       "to": "2023-01-01",
       "cohortOpens": 162,
-      "meanFinal": 2629.979
+      "meanFinal": 2585.5989999999997
     },
     {
       "enroll": "2019-04-01",
       "to": "2023-04-01",
       "cohortOpens": 131,
-      "meanFinal": 2171.236
+      "meanFinal": 2120.174
     },
     {
       "enroll": "2019-07-01",
       "to": "2023-07-01",
       "cohortOpens": 130,
-      "meanFinal": 1566.249
+      "meanFinal": 1542.783
     },
     {
       "enroll": "2019-10-01",
       "to": "2023-10-01",
       "cohortOpens": 169,
-      "meanFinal": 2452.3190000000004
+      "meanFinal": 2388.5379999999996
     },
     {
       "enroll": "2020-01-01",
       "to": "2024-01-01",
       "cohortOpens": 165,
-      "meanFinal": 2478.4170000000004
+      "meanFinal": 2413.756
     },
     {
       "enroll": "2020-04-01",
       "to": "2024-04-01",
       "cohortOpens": 169,
-      "meanFinal": 2442.3720000000003
+      "meanFinal": 2381.037
     },
     {
       "enroll": "2020-07-01",
       "to": "2024-07-01",
       "cohortOpens": 174,
-      "meanFinal": 2574.793
+      "meanFinal": 2508.3630000000003
     },
     {
       "enroll": "2020-10-01",
       "to": "2024-10-01",
       "cohortOpens": 158,
-      "meanFinal": 2417.625
+      "meanFinal": 2356.2850000000003
     },
     {
       "enroll": "2021-01-01",
       "to": "2025-01-01",
       "cohortOpens": 139,
-      "meanFinal": 1674.975
+      "meanFinal": 1626.007
     },
     {
       "enroll": "2021-04-01",
       "to": "2025-04-01",
       "cohortOpens": 114,
-      "meanFinal": 1296.577
+      "meanFinal": 1270.725
     },
     {
       "enroll": "2021-07-01",
       "to": "2025-07-01",
       "cohortOpens": 135,
-      "meanFinal": 1509.2720000000002
+      "meanFinal": 1475.0030000000002
     },
     {
       "enroll": "2021-10-01",
       "to": "2025-10-01",
       "cohortOpens": 135,
-      "meanFinal": 1593.387
+      "meanFinal": 1546.262
     },
     {
       "enroll": "2022-01-01",
       "to": "2026-01-01",
       "cohortOpens": 127,
-      "meanFinal": 1295.4789999999998
+      "meanFinal": 1271.066
     },
     {
       "enroll": "2022-04-01",
       "to": "2026-04-01",
       "cohortOpens": 139,
-      "meanFinal": 1437.024
+      "meanFinal": 1406.3780000000002
     },
     {
       "enroll": "2022-07-01",
       "to": "2026-07-01",
       "cohortOpens": 152,
-      "meanFinal": 1491.841
+      "meanFinal": 1460.623
     }
   ]
 }
