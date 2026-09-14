@@ -139,9 +139,9 @@ async function evaluate(genome, label) {
 }
 
 async function main() {
-  const N_MUTANTS = 25;
-  const SIGMA = 0.03;
-  const IMPROVEMENT_THRESHOLD = 0.05; // 5% lower-CI expectancy
+  const N_MUTANTS = Number(process.argv[2] ?? 25);
+  const SIGMA = Number(process.argv[3] ?? 0.03);
+  const IMPROVEMENT_THRESHOLD = Number(process.argv[4] ?? 0.05);
 
   const pg = JSON.parse(readFileSync(PG_PATH, "utf8"));
   const parents = pg.top5;
