@@ -42,6 +42,7 @@ const WINDOWS = {
   holdout:  { from: "2026-03-11", to: "2026-09-10" },
   fresh3mo: { from: "2026-06-10", to: "2026-09-10" },
   fresh1yr: { from: "2025-09-10", to: "2026-09-10" },
+  full16y:  { from: "2010-08-18", to: "2026-09-10" },
 };
 
 async function main() {
