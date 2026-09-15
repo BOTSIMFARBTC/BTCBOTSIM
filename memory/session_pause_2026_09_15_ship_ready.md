@@ -193,3 +193,78 @@ message end ──────────────────────�
 - Weight adjustment: 0.8/0.7/0.5/0.4/0.3 → 0.6/0.5/0.4/0.3/0.2
 - Honest numbers published in SHIP_README.md
 - Total sims across 9 sessions: ~150,000+
+
+## Vega exchange (end of session)
+
+Owner relayed the message-to-Vega. Vega replied same day with
+scaffolding already landed on FAR main + 4 follow-up asks. I
+replied. Full exchange saved as files at repo root:
+
+  MESSAGE-FROM-VEGA-2026-09-15.md         — initial ship handoff
+  MESSAGE-FROM-VEGA-2026-09-15-part2.md   — 4 follow-up asks
+  MESSAGE-TO-VEGA-2026-09-15-reply.md     — my answers
+
+Vega shipped this session (owner-side, not my repo):
+  - lib/access/btc-bot-presets.ts — 5-bot roster wired to /access
+  - contracts/src/autotrader/synfutures/SynfuturesBtcAdapterFactory.sol
+  - btc-executor-worker/ — CF Worker scaffold (shadow-mode default)
+  - Members-facing pitch on /access BTC tab (uses my honest forward
+    numbers, NOT the training-inflated 65-68% WR)
+
+My decisions in reply:
+  1. **Call-signs Alpha/Bravo/Charlie/Delta/Echo APPROVED** (Vega's
+     proposal, mapping verified against portfolio-genomes.json).
+  2. **Pitch copy APPROVED** as-drafted. Suggested optional "n=11"
+     qualifier after "~90% positive-year rate" for numerical honesty.
+  3. **champions.json contract APPROVED with 3 tweaks**:
+     (a) plugin only emits opens (missing = hold, close is adapter-side)
+     (b) emitter converts tp_pct/sl_pct to USD levels using current
+         BTC close as entryRef (executor keeps it simple)
+     (c) confidence should be 0-1 decimal (I emit 0-100 int currently)
+  4. **Synfutures V3 BTCUSD on Base — HONEST DON'T KNOW.** Recommended
+     owner/Rook do a 30-min venue audit BEFORE Vega spends Solidity
+     cycles on adapter. Alternatives if no: Ostium (best) or
+     Aerodrome cbBTC/USDC spot (second-best; would improve realism
+     because my funding-shock model wouldn't apply to spot).
+
+## What's queued for next Argus session
+
+**MUST deliver:**
+1. `scripts/28-live-emitter.mjs` — standalone daily emitter:
+   - Input: today's BTC OHLC bar (as CLI arg or stdin JSON)
+   - Loads plugin + bots + portfolio-genomes.json
+   - Runs decisionFor on each bot
+   - Emits champions.json with the agreed 3-tweak shape
+   - Optionally: bake in Binance klines fetch (owner confirms no
+     API key needed for low-vol daily fetch)
+
+**IF venue audit came back:**
+2a. If Synfutures V3 BTCUSD live on Base → NO ACTION (Vega's
+    adapter proceeds, my genomes ship as-is)
+2b. If Ostium instead → re-run `scripts/16-tpsl-grid.mjs` with
+    Ostium's fee/slippage profile to reconfirm shortlist metrics
+    still hold (~30 min compute)
+2c. If Aerodrome spot → drop funding-shock model, drop bear-inverse
+    scaffold (BEAR_ONLY doesn't apply to spot), simplify realism 90
+    to just fat-tail slippage. Re-audit. Larger refactor.
+
+**BLOCKED on owner action:**
+- GHA cron setup + CF R2 publish creds
+- Deploy of Vega's SynfuturesBtcAdapter contract
+- Deploy of btc-executor-worker to CF
+- 4-week shadow window kickoff
+
+## Ship queue snapshot (end of session)
+
+- ✅ Argus plugin ship-ready (bots-sim/markets/btc/ on FAR c4757cd)
+- ✅ Overfit audit passed with honest deration
+- ✅ Sizing bug fixed
+- ✅ SHIP_README.md deployment plan published
+- ✅ Vega site scaffolds landed (btc-bot-presets, factory, executor-worker)
+- ⬜ Owner: venue audit (Synfutures BTCUSD on Base yes/no)
+- ⬜ Argus: emitter script (`28-live-emitter.mjs`, next session)
+- ⬜ Owner: GHA cron + CF R2 creds
+- ⬜ Owner: deploy contracts (audit-gated)
+- ⬜ Owner: deploy btc-executor-worker (shadow mode)
+- ⬜ ≥4 weeks shadow-mode window
+- ⬜ Owner: flip SHADOW_MODE=false + first-capital cap $500-$1000
