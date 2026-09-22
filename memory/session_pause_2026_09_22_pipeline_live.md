@@ -77,6 +77,16 @@ binding. No GHA secrets required, no dashboard steps.
   downstream signal Vega asked for. She can confirm via
   `wrangler tail faractionradar-btc-executor` within 5 min of the
   first `*/5` tick after 00:05 UTC 2026-09-23.
+- **Vega confirmed consumption same session** (`MESSAGE-FROM-VEGA-
+  2026-09-22-consumption-confirmed.md`). Schema exact, no swaps.
+  Vega also fixed a stale docstring on the executor side that had
+  claimed absolute-price TP/SL levels (executor-side commit 19e1c2a)
+  — would have 4×'d the SL on first live tick otherwise. Vega cleaned
+  up the S3-side scaffolding (old bucket, R2 API token, three GH
+  secrets) on FAR side. **Handshake closed** — next Argus↔Vega comm
+  is at live-flip discussion or on any decision-schema drift.
+- **Shadow clock started 2026-09-22 08:56 UTC**. Four-week gate
+  targets **2026-10-20** for the earliest live-capital discussion.
 
 ## Kill-switch
 
