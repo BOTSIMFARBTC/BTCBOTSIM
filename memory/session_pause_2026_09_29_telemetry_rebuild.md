@@ -118,8 +118,37 @@ Argus's own repo (BOTSIMFARBTC/BTCBOTSIM):
 
 ## HEADs
 
-- FAR btc-bot-sim: **c854d6b** (was bb42481 pre-executor-gate fix)
-- Argus main:       **c53e4d5** (was 5b8c5a5 pre-correction)
+- FAR btc-bot-sim: **1f7da71** (5 commits total: fc98540 + bb42481 +
+  c854d6b executor-gate + 2d5a5d3 cron+freshness + 1f7da71 tests+recap+retune)
+- Argus main:       **d1f6af2** (4 commits: 5b8c5a5 + 2751fa5 + c53e4d5 +
+  8783e3f memory-correct + d1f6af2 STATUS second-pass)
+
+## Second-pass additions (after read-executor + validate-hypothesis)
+
+- **Yahoo lag validated** via 09-24 live row cross-check:
+  entryRef $86,172.28 = Yahoo 09-22 close exact (not 09-23).
+  Root cause: Yahoo indexes BTC-USD by US ET, not UTC. At 00:05
+  UTC on day D, ET is still D-1 evening → latest closed = D-2.
+- **Cron shifted `5 0 * * *` → `0 6 * * *`** in wrangler.jsonc.
+  06:00 UTC is ~2h past ET midnight, giving Yahoo time to publish
+  D-1 close. Bundled with R2 archive deploy — single command for owner.
+- **`data-freshness` regression guard** added to health-check.
+  Compares emit entryRef against Binance D-1 close. FAILs when
+  it matches D-2 close better (smoking gun for lag). Non-zero exit.
+- **14 unit tests** in test-analyze.mjs — all pass. Covers sizing
+  formula, TP/SL detection, stacking gate, temporal strictness,
+  and the confidence-as-scalar regression trap.
+- **weekly-recap.mjs** — auto-verdict (GREEN/AMBER/RED), idempotent
+  per week. First recap week-2-2026-09-29.md AMBER (health FAIL
+  from the lag bug catch — flips GREEN after deploy).
+- **retune-experiment.mjs** — SL_FLOOR sweep result: bumping 3% →
+  5% saves all 3 stop-outs but only improves portfolio 1.2%.
+  DO NOT retune shipped roster from one week. Multi-week + OOS
+  validation required first.
+- **PHASE-2-SPEC.md** — added copy-paste reference implementation
+  of BTC-side `/public-status` route for Vega (she owns app/).
+  Plus executor-worker changes needed to feed it + full divergence-
+  check math ready for log-decisions.mjs when endpoint ships.
 
 ## Next session pickup
 
