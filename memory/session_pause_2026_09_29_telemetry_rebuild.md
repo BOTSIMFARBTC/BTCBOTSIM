@@ -50,57 +50,76 @@ Rebuilt in this session:
 - **Owner-facing STATUS-2026-09-29.md** in Argus repo — plain-
   English readout of what shipped, week-1 findings, owner actions.
 
-## Week-1 shadow performance (RED)
+## Week-1 shadow performance (CORRECTED — mild drag, not RED)
 
 ```
 Days elapsed: 7 / 28
 Latest closed BTC bar: 2026-09-28 @ $83,500.01
 
+Per-bot emission (after executor stacking gate)
 Bot      emit  TP  SL  OPEN   ΣPnL%
-Alpha       3   0   3    0   -12.15
-Bravo       3   0   0    3    -9.84
-Charlie     5   0   3    2   -14.08
-Delta       3   0   3    0   -12.03
-Echo        5   0   0    5   -12.13
+Alpha       1   0   1    0    -4.05
+Bravo       1   0   0    1    -3.60
+Charlie     2   0   1    1    -5.08
+Delta       1   0   1    0    -4.01
+Echo        1   0   0    1    -3.60
 
 Portfolio ($1000 notional per bot slot)
-Total capital deployed: $9,600.00
-Shadow P&L: -$328.80   (-32.88%)
+Total capital deployed: $3,200.00
+Shadow P&L: -$112.77   (-11.28%)
 BTC-hold:   -$31.42   (-3.14%)
-Shadow − BTC-hold: -$297.38
+Shadow − BTC-hold: -$81.35
+
+Executor gate: 13 raw emissions skipped (68.4% of what Argus emitted).
 ```
 
-**Two structural concerns** raised for pre-cohort discussion:
+**IMPORTANT — initial numbers were wrong.** First analyze-shadow
+pass reported -32.9% because it treated every emission as a new
+position. Then I read `btc-executor-worker/src/index.ts` line 547:
 
-1. **Position stacking**. Shadow model treats each emission as new
-   position. Real executor (Vega's) may or may not stack. If it
-   does, 5 bots × 3 active days = 15 layered longs deep. If it
-   caps at one-open-per-bot, week 1 would be 5 losing trades not 9.
-   → question queued for Vega.
+    if (m.activePositionRef !== ZERO_REF) { counters.skipped++; continue; }
 
-2. **Tight-SL trio getting whipsawed**. Alpha (4.05%), Charlie
-   (3.93%), Delta (4.01%) all stopped on every 09-22, 09-23, 09-24
-   entry. BTC daily range has run 3-5% — normal wick trips them.
-   Bravo (8%) and Echo (7.2%) held through. GA didn't seem to price
-   this vol regime.
+Executor holds ONE position per bot. Subsequent emissions gated.
+Fixed analyze-shadow to enforce same gate. Result: -11.3% (3x lower).
 
-Neither is fatal (SHIP_README expects 40-50% WR, we should see
-recovery weeks), but structure matters more than one-week P&L.
+**Structural findings** (all non-fatal, cohort slot GREEN-LEANING):
+
+1. **Executor gate does its job.** 68% of raw emissions correctly
+   suppressed. No over-exposure. Sizing formula in executor
+   (`baseCollateral × sizeMultiplier × regimeMult × confMult`)
+   matches Argus's phase-2 spec exactly.
+
+2. **Tight-SL trio (Alpha/Charlie/Delta) is the weakness.** All
+   three stopped on 09-24 leg. BTC daily range 3-5% → normal wicks
+   trip 4% SLs. Bravo (8%) and Echo (7.2%) rode it out. GA didn't
+   price current vol regime. Consider retune if week 2 repeats.
+
+**Yahoo lag bug (P1)**: Worker's entryRef today ($84,458) matches
+Yahoo's 09-27 close, not 09-28's ($83,502). At 00:05 UTC 09-29
+Yahoo hadn't published 09-28 bar yet — Worker used 2-day-old data.
+Fix: shift cron from `5 0 * * *` to `30 0 * * *` (bundle with R2
+archive deploy). Verify by checking tomorrow's entryRef.
+
+Cohort-slot decision: **GREEN-LEANING** (was RED before correction).
+Mild losing week within SHIP_README's expected 40-50% WR envelope,
+not a kill signal.
 
 ## Files changed (both repos)
 
 FAR repo `btc-bot-sim` branch:
 - **fc98540** — Worker archive + /log endpoints (owner-deploy pending)
 - **bb42481** — local tooling suite + reconstructed log rows
+- **c854d6b** — analyze-shadow enforces executor stacking gate
 
 Argus's own repo (BOTSIMFARBTC/BTCBOTSIM):
-- **5b8c5a5** — STATUS-2026-09-29.md owner-facing readout
+- **5b8c5a5** — STATUS-2026-09-29.md initial (superseded)
+- **c53e4d5** — STATUS-2026-09-29.md updated with corrected numbers
 - (this commit) — session_pause_2026_09_29 memory + MEMORY.md index
 
 ## HEADs
 
-- FAR btc-bot-sim: **bb42481**
-- Argus main:       **5b8c5a5**
+- FAR btc-bot-sim: **c854d6b** (was bb42481 pre-executor-gate fix)
+- Argus main:       **c53e4d5** (was 5b8c5a5 pre-correction)
 
 ## Next session pickup
 
